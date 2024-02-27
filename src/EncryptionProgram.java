@@ -81,6 +81,7 @@ public class EncryptionProgram {
 		
 		
 	}
+	
 	private void retrieveKey() {
 		System.out.println("Key: ");
 		
@@ -93,12 +94,15 @@ public class EncryptionProgram {
 		}
 		System.out.println();
 	}
+	
 	private void encryptKey() {
 		
 	}
+	
 	private void decryptKey() {
 		
-	}	
+	}
+	
 	private void quit() {
 		
 	}
