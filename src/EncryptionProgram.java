@@ -13,6 +13,7 @@ public class EncryptionProgram {
 	private char character;
 	private String line;
 	private char[] letters;
+	String newMessage = "";
 
 	EncryptionProgram(){
 		scan = new Scanner(System.in);
@@ -99,7 +100,6 @@ public class EncryptionProgram {
 		String message = scan.nextLine();
 		
 		letters = message.toCharArray();
-		String newMessage = "";
 		for(int i = 0; i < letters.length; i++) {
 			for(int j = 0; j < list.size(); j++) {
 				if(letters[i] == list.get(j)) {
@@ -109,14 +109,31 @@ public class EncryptionProgram {
 			}			
 		}
 		
-		System.out.println("Encrypted: " + newMessage);
+		System.out.println("Encrypted Message: " + newMessage);
 	}
 	
 	private void decryptKey() {
 		
+		if(newMessage.isEmpty()) {
+			System.out.println("Enter a message first.");
+		}
+		else {
+			letters = newMessage.toCharArray();
+			newMessage = "";
+			for(int i = 0; i < letters.length; i++) {
+				for(int j = 0; j < shuffledList.size(); j++) {
+					if(letters[i] == shuffledList.get(j)) {
+						newMessage += list.get(j);
+						break;
+					}
+				}			
+			}
+			
+			System.out.println("Decrypted Message: " + newMessage);
+		}
 	}
 	
 	private void quit() {
-		
+		System.exit(0);
 	}
 }
